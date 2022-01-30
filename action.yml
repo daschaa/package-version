@@ -1,4 +1,7 @@
 name: '📦 Parse package version '
+branding:
+  icon: package
+  color: green
 description: 'Fetches the version of the package.json and creates an output parameter'
 inputs:
   path:  # path to package.json
