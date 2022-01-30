@@ -1661,11 +1661,15 @@ var __webpack_exports__ = {};
 /* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(147);
 
 
+
 try {
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.info('🛫 Start getting the package.json version...');
     const path = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('path');
     const cleanedPath = `${process.cwd()}${path.startsWith('./') ? path.slice(1, path.length) : '/' + path}`;
-    let packageFile = JSON.parse(fs__WEBPACK_IMPORTED_MODULE_1__.readFileSync(cleanedPath));
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.setOutput("version", packageFile.version);
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`ℹ️ Get the input path: ${cleanedPath}`);
+    let packageFile = JSON.parse((0,fs__WEBPACK_IMPORTED_MODULE_1__.readFileSync)(cleanedPath));
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`🥳 Fetched the package.json version: ${packageFile['version']}`);
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.setOutput("version", packageFile['version']);
 } catch (e) {
     _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(e);
 }
