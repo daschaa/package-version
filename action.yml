@@ -1,4 +1,4 @@
-name: '✍️ Get package version'
+name: '📦 Parse package version '
 description: 'Fetches the version of the package.json and creates an output parameter'
 inputs:
   path:  # path to package.json
