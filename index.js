@@ -1,10 +1,14 @@
 import core from "@actions/core";
-import fs from "fs";
+import {readFileSync} from "fs";
+
 try {
+    core.info('🛫 Start getting the package.json version...');
     const path = core.getInput('path');
     const cleanedPath = `${process.cwd()}${path.startsWith('./') ? path.slice(1, path.length) : '/' + path}`;
-    let packageFile = JSON.parse(fs.readFileSync(cleanedPath));
-    core.setOutput("version", packageFile.version);
+    core.info(`ℹ️ Get the input path: ${cleanedPath}`);
+    let packageFile = JSON.parse(readFileSync(cleanedPath));
+    core.info(`🥳 Fetched the package.json version: ${packageFile['version']}`);
+    core.setOutput("version", packageFile['version']);
 } catch (e) {
     core.setFailed(e);
 }
