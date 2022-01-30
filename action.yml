@@ -1,0 +1,13 @@
+name: '✍️ Get package version'
+description: 'Fetches the version of the package.json and creates an output parameter'
+inputs:
+  path:  # path to package.json
+    description: 'Path to package.json'
+    required: true
+    default: 'package.json'
+outputs:
+  current-version: # version from package.json
+    description: 'The current version in the package.json'
+runs:
+  using: 'node16'
+  main: 'index.js'
